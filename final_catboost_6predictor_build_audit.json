@@ -1,0 +1,31 @@
+{
+  "N": 438,
+  "Positive_N": 71,
+  "OOF_AUPRC": 0.3919747271755154,
+  "OOF_AUROC": 0.718847142802318,
+  "OOF_Brier_raw": 0.13400055405257694,
+  "Fitted_calibration_intercept": -0.6798637989820725,
+  "Fitted_calibration_slope": 1.0236490259686106,
+  "Locked_calibration_intercept": -0.679864,
+  "Locked_calibration_slope": 1.023649,
+  "Calibration_parameters_match_locked": true,
+  "Raw_and_calibrated_strata_are_exactly_equivalent": false,
+  "Low_cutoff": 0.1060453100788336,
+  "Low_cutoff_operating_point": {
+    "TP": 68,
+    "FP": 305,
+    "TN": 62,
+    "FN": 3,
+    "Sensitivity": 0.9577464788732394,
+    "Specificity": 0.16893732970027248
+  },
+  "High_cutoff": 0.4642009876892401,
+  "High_cutoff_operating_point": {
+    "TP": 27,
+    "FP": 36,
+    "TN": 331,
+    "FN": 44,
+    "Sensitivity": 0.38028169014084506,
+    "Specificity": 0.9019073569482289
+  }
+}

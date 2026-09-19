@@ -1,0 +1,74 @@
+{
+  "model_version": "SSI-CatBoost-6P-v1.0-2026-09-18",
+  "feature_columns": [
+    "sex",
+    "L3",
+    "PLT2",
+    "CRP2",
+    "ΔESR_2to3",
+    "ΔN%_2to3"
+  ],
+  "target_column": "Infection",
+  "sex_column": "sex",
+  "sex_coding": {
+    "0": "female",
+    "1": "male"
+  },
+  "training_medians": {
+    "sex": 0.0,
+    "L3": 1.2,
+    "PLT2": 176.0,
+    "CRP2": 21.7,
+    "ΔESR_2to3": 21.5622787475586,
+    "ΔN%_2to3": -8.8
+  },
+  "scaler": {
+    "continuous_features": [
+      "L3",
+      "PLT2",
+      "CRP2",
+      "ΔESR_2to3",
+      "ΔN%_2to3"
+    ],
+    "mean": {
+      "L3": 1.2997403757485082,
+      "PLT2": 180.25979591265116,
+      "CRP2": 34.374876917116175,
+      "ΔESR_2to3": 25.253454720347985,
+      "ΔN%_2to3": -7.933075223012602
+    },
+    "scale": {
+      "L3": 0.5355444650856772,
+      "PLT2": 61.08262069582392,
+      "CRP2": 41.260095697570364,
+      "ΔESR_2to3": 22.99469769522807,
+      "ΔN%_2to3": 9.695436776815985
+    }
+  },
+  "recalibration": {
+    "type": "logistic_intercept_slope_on_training_5fold_OOF",
+    "intercept": -0.679864,
+    "slope": 1.023649,
+    "formula": "logit(p_cal) = intercept + slope * logit(p_raw)"
+  },
+  "risk_cutoffs": {
+    "raw_probability": {
+      "low_to_intermediate": 0.1060453100788336,
+      "intermediate_to_high": 0.4642009876892401
+    },
+    "calibrated_probability_equivalent": {
+      "low_to_intermediate": 0.0540609,
+      "intermediate_to_high": 0.3043438
+    },
+    "authoritative_classification_scale": "calibrated_probability"
+  },
+  "applicable_time_window": "Preoperative through POD4–5; POD7–8 is not used.",
+  "intended_use": "Early risk stratification for deep postoperative SSI after spinal instrumentation; not a standalone diagnosis.",
+  "display": {
+    "show": [
+      "risk_level",
+      "recalibrated_estimated_probability_of_deep_SSI"
+    ],
+    "do_not_show_as_clinical_probability": "raw_catboost_probability"
+  }
+}

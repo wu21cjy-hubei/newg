@@ -11,7 +11,7 @@ st.set_page_config(page_title="Deep SSI risk assessment", page_icon="🏥")
 st.title("Deep SSI risk assessment")
 st.caption("Six predictor CatBoost model · calibrated probability")
 
-model_dir = Path(__file__).resolve().parent / "model_artifacts"
+model_dir = Path(__file__).resolve().parent
 required = (
     model_dir / "final_catboost_6predictor.cbm",
     model_dir / "final_catboost_6predictor_config.json",
