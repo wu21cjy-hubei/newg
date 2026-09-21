@@ -520,16 +520,17 @@ class PredictionResult:
 
 RISK_MESSAGES_EN = {
     "Low risk": (
-        "The model indicates a low estimated risk of deep SSI. Clinical findings should still "
-        "be considered, particularly when infection is strongly suspected."
+        "The estimated risk of SSI is low. Infection cannot be excluded solely on the basis of this result. "
+        "Further evaluation is warranted if clinical suspicion persists."
     ),
     "Intermediate risk": (
-        "The model does not clearly classify the patient as low or high risk. Further assessment "
-        "should be based on clinical findings and additional investigations."
+        "Review the wound for drainage, redness, or increasing pain. Assess CRP trends and other clinical "
+        "signs of infection. If suspicion persists, consider imaging and microbiological investigations. "
+        "Do not diagnose or exclude deep SSI based on this score alone."
     ),
     "High risk": (
-        "The model indicates a substantially increased risk of deep SSI. Further clinical evaluation "
-        "is recommended. High risk does not equal a confirmed diagnosis."
+        "The estimated risk of deep SSI is elevated. Prompt clinical assessment and further investigation "
+        "should be considered. This result does not establish a diagnosis of deep SSI."
     ),
 }
 
