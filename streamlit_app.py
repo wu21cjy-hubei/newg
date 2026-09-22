@@ -31,14 +31,14 @@ except Exception as exc:
     st.error(f"Model could not be loaded: {exc}")
     st.stop()
 
-st.write("请输入以下六项患者信息。")
+st.write("Please enter the following six items of patient information")
 with st.form("patient"):
-    sex = st.selectbox("Sex", options=[0, 1], format_func=lambda x: "Female" if x == 0 else "Male")
-    l3 = st.number_input("淋巴细胞计数（术后第4–5天，×10⁹/L）", value=None, format="%.4f")
-    plt2 = st.number_input("血小板计数（术后第1–2天，×10⁹/L）", value=None, format="%.4f")
-    crp2 = st.number_input("C反应蛋白（CRP，术后第1–2天，mg/L）", value=None, format="%.4f")
-    delta_esr = st.number_input("血沉变化值：第7–8天 ESR − 第4–5天 ESR（mm/h）", value=None, format="%.4f")
-    delta_neutrophils = st.number_input("中性粒细胞百分比变化值：第7–8天 N% − 第4–5天 N%（百分点）", value=None, format="%.4f")
+    sex = st.selectbox("Gender", options=[0, 1], format_func=lambda x: "Female" if x == 0 else "Male")
+    l3 = st.number_input("Lymphocyte count (postoperative days 4–5, ×10⁹/L)", value=None, format="%.4f")
+    plt2 = st.number_input("Platelet count (postoperative days 1–2, ×10⁹/L)", value=None, format="%.4f")
+    crp2 = st.number_input("C-reactive protein (CRP, postoperative days 1–2, mg/L)", value=None, format="%.4f")
+    delta_esr = st.number_input("ESR change value: ESR on days 7–8 – ESR on days 4–5 (mm/h)", value=None, format="%.4f")
+    delta_neutrophils = st.number_input("Change in neutrophil percentage: N% (Days 7–8) − N% (Days 4–5) (percentage points)", value=None, format="%.4f")
     submitted = st.form_submit_button("Calculate risk", type="primary")
 
 if submitted:
