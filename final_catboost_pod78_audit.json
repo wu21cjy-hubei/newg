@@ -1,0 +1,24 @@
+{
+  "training_oof": {
+    "n": 438,
+    "positive_n": 71,
+    "auroc": 0.7603906819664582,
+    "auprc": 0.4908007230079215,
+    "brier_raw": 0.12368988210890332,
+    "brier_calibrated": 0.11005158539358091
+  },
+  "external": {
+    "n": 107,
+    "positive_n": 21,
+    "auroc": 0.8009413067552603,
+    "auprc": 0.5036046166963637,
+    "brier_raw": 0.13643438571181754,
+    "brier_calibrated": 0.13752868253628125
+  },
+  "external_export_max_abs_error": 0.0,
+  "source_sha256": "167da6a9670bfedeeb8a10c2d70671ecf743546ef557d0b41111207b1171819f",
+  "data_sha256": {
+    "training": "8e00e631482a3752a2fbfe6e0422fb6287d619227fd67b9017398dfb873ec542",
+    "external": "8939a74ac84f50195d7135c27561318aa16da956d2672762359522286198fc32"
+  }
+}

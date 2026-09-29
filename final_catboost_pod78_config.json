@@ -1,0 +1,61 @@
+{
+  "model_version": "POD7-8-CatBoost-7P-v1",
+  "feature_columns": [
+    "sex",
+    "L3",
+    "N%4",
+    "PLT2",
+    "ΔPLT_1to2",
+    "ΔCRP_2to4",
+    "ΔM%_3to4"
+  ],
+  "raw_probability_threshold": 0.11,
+  "classification_rule": "High risk if raw probability >= threshold; otherwise Low risk",
+  "recalibration": {
+    "intercept": -0.33932791533990136,
+    "slope": 1.4572251640819436,
+    "fit_on": "Training five-fold OOF predictions only"
+  },
+  "calibrated_probability_threshold_equivalent": 0.03273560813558084,
+  "scaler": {
+    "continuous_features": [
+      "L3",
+      "N%4",
+      "PLT2",
+      "ΔPLT_1to2",
+      "ΔCRP_2to4",
+      "ΔM%_3to4"
+    ],
+    "mean": {
+      "L3": 1.2997403757485082,
+      "N%4": 71.22592495434904,
+      "PLT2": 180.25979591265116,
+      "ΔPLT_1to2": -38.958785198322715,
+      "ΔCRP_2to4": 10.105713114499638,
+      "ΔM%_3to4": 0.749016986671648
+    },
+    "scale": {
+      "L3": 0.5355444650856772,
+      "N%4": 7.351078906171597,
+      "PLT2": 61.08262069582392,
+      "ΔPLT_1to2": 44.45186106969359,
+      "ΔCRP_2to4": 51.07145150978173,
+      "ΔM%_3to4": 2.392944186987271
+    }
+  },
+  "model_parameters": {
+    "iterations": 70,
+    "learning_rate": 0.13,
+    "depth": 1,
+    "l2_leaf_reg": 18,
+    "random_strength": 11,
+    "bagging_temperature": 5,
+    "loss_function": "Logloss",
+    "eval_metric": "Logloss",
+    "random_seed": 42,
+    "verbose": false,
+    "allow_writing_files": false
+  },
+  "sampling_ratio": 0.41,
+  "k_neighbors": 11
+}
