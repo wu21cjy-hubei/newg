@@ -31,7 +31,7 @@ except Exception as exc:
     st.error(f"Model could not be loaded: {exc}")
     st.stop()
 
-st.write("Please enter the following six items of patient information")
+st.write("Please enter the following six variables available up to postoperative days 4–5")
 with st.form("patient"):
     sex = st.selectbox("Gender", options=[0, 1], format_func=lambda x: "Female" if x == 0 else "Male")
     l3 = st.number_input("Lymphocyte count (postoperative days 4–5, ×10⁹/L)", value=None, format="%.4f")
