@@ -37,8 +37,8 @@ with st.form("patient"):
     l3 = st.number_input("Lymphocyte count (postoperative days 4–5, ×10⁹/L)", value=None, format="%.4f")
     plt2 = st.number_input("Platelet count (postoperative days 1–2, ×10⁹/L)", value=None, format="%.4f")
     crp2 = st.number_input("C-reactive protein (CRP, postoperative days 1–2, mg/L)", value=None, format="%.4f")
-    delta_esr = st.number_input("ESR change value: ESR on days 7–8 – ESR on days 4–5 (mm/h)", value=None, format="%.4f")
-    delta_neutrophils = st.number_input("Change in neutrophil percentage: N% (Days 7–8) − N% (Days 4–5) (percentage points)", value=None, format="%.4f")
+    delta_esr = st.number_input("ESR change value: ESR on days 4–5 – ESR on days 1–2 (mm/h)", value=None, format="%.4f")
+    delta_neutrophils = st.number_input("Change in neutrophil percentage: N% (Days 4–5) − N% (Days 1–2) (percentage points)", value=None, format="%.4f")
     submitted = st.form_submit_button("Calculate risk", type="primary")
 
 if submitted:
