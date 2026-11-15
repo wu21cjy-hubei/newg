@@ -2,9 +2,13 @@
 
 The app accepts Gender and six laboratory variables. It uses the seven predictors present in the supplied research script and datasets, in their original order.
 
-Classification follows the research script: raw CatBoost probability >= 0.11 gives High risk; otherwise Low risk. There is no Intermediate risk category.
+Classification uses the locked calibrated probability from `final_CatBoost(pod7-8).py`:
 
-For the displayed estimated probability, logistic recalibration is fitted once on training five-fold out-of-fold predictions using the supplied script's calibration routine. This is an app display extension: the research script calculates calibration diagnostics but does not apply recalibration to its predictions. Calibration does not alter the raw-scale classification threshold. The external set is used only for validation, never for model fitting, calibration, or threshold selection.
+- Low risk: p < 0.03403580844439361
+- Intermediate risk: 0.03403580844439361 ≤ p < 0.2871693362170313
+- High risk: p ≥ 0.2871693362170313
+
+The displayed probability applies the source's locked OOF calibration: logit(p_cal) = -0.3393279153399011 + 1.457225164081942 × logit(p_raw). The build verifies training OOF compatibility before exporting. The raw threshold 0.1399 is retained for research provenance only; app risk classification uses the two calibrated cutoffs. External data is used only for validation.
 
 ## Run
 
@@ -20,3 +24,9 @@ The deployment does not need patient-level training or validation spreadsheets. 
 ## Rebuild locally
 
 `build_pod78.py` additionally needs the original research dependencies (scikit-learn, imbalanced-learn, matplotlib and openpyxl). Run it with `--source`, `--train` and `--external` pointing to the supplied local research script and datasets. The build saves the model, preprocessing and calibration configuration, and an aggregate validation audit. No patient-level predictions are exported.
+
+From the project root, rebuild with:
+
+```sh
+.venv/bin/python pod78_app/build_pod78.py --source 'final_CatBoost(pod7-8).py' --train '未命名文件夹/训练集_7(1).xlsx' --external '未命名文件夹/外部验证集_7(1).xlsx'
+```

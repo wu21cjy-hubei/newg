@@ -47,8 +47,8 @@
   },
   "recalibration": {
     "type": "logistic_intercept_slope_on_training_5fold_OOF",
-    "intercept": -0.679864,
-    "slope": 1.023649,
+    "intercept": -0.6798637989820704,
+    "slope": 1.023649025968613,
     "formula": "logit(p_cal) = intercept + slope * logit(p_raw)"
   },
   "risk_cutoffs": {
@@ -57,8 +57,8 @@
       "intermediate_to_high": 0.4642009876892401
     },
     "calibrated_probability_equivalent": {
-      "low_to_intermediate": 0.0540609,
-      "intermediate_to_high": 0.3043438
+      "low_to_intermediate": 0.054060891965435606,
+      "intermediate_to_high": 0.3043438098694759
     },
     "authoritative_classification_scale": "calibrated_probability"
   },

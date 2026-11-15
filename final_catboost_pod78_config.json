@@ -1,5 +1,5 @@
 {
-  "model_version": "POD7-8-CatBoost-7P-v1",
+  "model_version": "POD7-8-CatBoost-7P-v2",
   "feature_columns": [
     "sex",
     "L3",
@@ -9,14 +9,18 @@
     "ΔCRP_2to4",
     "ΔM%_3to4"
   ],
-  "raw_probability_threshold": 0.11,
-  "classification_rule": "High risk if raw probability >= threshold; otherwise Low risk",
+  "raw_probability_threshold": 0.1399,
+  "classification_rule": "Three risk levels on locked calibrated probability cutoffs",
+  "risk_cutoffs": {
+    "low_to_intermediate": 0.03403580844439361,
+    "intermediate_to_high": 0.2871693362170313
+  },
   "recalibration": {
-    "intercept": -0.33932791533990136,
-    "slope": 1.4572251640819436,
+    "intercept": -0.3393279153399011,
+    "slope": 1.457225164081942,
     "fit_on": "Training five-fold OOF predictions only"
   },
-  "calibrated_probability_threshold_equivalent": 0.03273560813558084,
+  "calibrated_probability_threshold_equivalent": 0.048070384560963055,
   "scaler": {
     "continuous_features": [
       "L3",

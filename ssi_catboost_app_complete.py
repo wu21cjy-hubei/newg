@@ -89,12 +89,12 @@ RAW_LOW_CUTOFF = 0.1060453100788336
 RAW_HIGH_CUTOFF = 0.4642009876892401
 
 # Locked logistic recalibration fitted using training 5-fold OOF probabilities ONLY.
-CAL_INTERCEPT = -0.679864
-CAL_SLOPE = 1.023649
+CAL_INTERCEPT = -0.6798637989820704
+CAL_SLOPE = 1.023649025968613
 
 # Locked deployment boundaries on the calibrated scale.
-CAL_LOW_CUTOFF = 0.0540609
-CAL_HIGH_CUTOFF = 0.3043438
+CAL_LOW_CUTOFF = 0.054060891965435606
+CAL_HIGH_CUTOFF = 0.3043438098694759
 
 # Reference audit values from the locked development OOF analysis.
 EXPECTED_OOF_N = 438

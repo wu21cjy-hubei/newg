@@ -8,6 +8,7 @@ from catboost import CatBoostClassifier
 
 FEATURES = ["sex", "L3", "N%4", "PLT2", "ΔPLT_1to2", "ΔCRP_2to4", "ΔM%_3to4"]
 MESSAGES = {
+    "Intermediate risk": "The estimated risk of deep SSI is intermediate. Further clinical assessment and follow-up should be considered. This result does not establish a diagnosis of deep SSI.",
     "Low risk": "The estimated risk of SSI is low. Infection cannot be excluded solely on the basis of this result. Further evaluation is warranted if clinical suspicion persists.",
     "High risk": "The estimated risk of deep SSI is elevated. Prompt clinical assessment and further investigation should be considered. This result does not establish a diagnosis of deep SSI.",
 }
@@ -44,5 +45,7 @@ class POD78Model:
         raw = float(self.raw_probabilities([patient])[0])
         calibration = self.config["recalibration"]
         probability = float(calibrate(raw, calibration["intercept"], calibration["slope"]))
-        risk = "High risk" if raw >= self.config["raw_probability_threshold"] else "Low risk"
+        cutoffs = self.config["risk_cutoffs"]
+        risk = ("Low risk" if probability < cutoffs["low_to_intermediate"] else
+                "Intermediate risk" if probability < cutoffs["intermediate_to_high"] else "High risk")
         return {"risk_level": risk, "estimated_probability": probability, "message": MESSAGES[risk]}
